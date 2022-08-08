@@ -26,6 +26,9 @@ public class Searching {
             int target = sc.nextInt();
             if(choice == 1){
                 out.println("====  "+target+" found at "+linarsearch(arr ,target)+" position  ====");
+            }else if(choice == 2){
+                out.println("===  WARNING: Array was to be sorted ===\n");
+                out.println("====  "+target+" found at "+binaryserach(arr ,target)+" position  ====");
             }
         }
     }
@@ -33,6 +36,22 @@ public class Searching {
         for (int i =0;i<arr.length;i++) {
             if(arr[i]==target){
                 return i+1;
+            }
+        }
+        return -1;
+    }
+
+    static int binaryserach(int[] arr,int target){
+        int s = 0;
+        int l = arr.length-1;
+        while(s<l){
+            int mid = s+(l-s)/2;
+            if(arr[mid]<target){
+                s = mid+1;
+            }else if(arr[mid]>target){
+                l=mid-1;
+            }else{
+                return mid+1;
             }
         }
         return -1;
