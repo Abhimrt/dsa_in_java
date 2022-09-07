@@ -14,7 +14,7 @@ public class SLL {
     Linkedlist head = null;
     Linkedlist tail = null;
 
-    void newNode(int data){
+    void nextNode(int data){
        Linkedlist next = new Linkedlist(data);
        if(head==null){
            head = next;
@@ -26,14 +26,26 @@ public class SLL {
     }
 
     void display(){
-        if(head == null){
+        if(head == null) {
             System.out.println("Linked list is not null");
+        }else{
+            Linkedlist current = head;
+            while(current!=null){
+                System.out.println(current.data);
+                current=current.next;
+            }
         }
-
     }
 
 
     public static void main(String[] args) {
+        SLL newNode = new SLL();
 
+        newNode.nextNode(2);
+        newNode.nextNode(3);
+        newNode.nextNode(4);
+        newNode.nextNode(5);
+
+        newNode.display();
     }
 }
